@@ -6,11 +6,16 @@ export default function Header() {
 			<nav>
 				<ul>
 					<li>
-						<a className="ht">HT</a>
-						<a className="Reviews">Reviews</a>
+						<Link to="/home" className="link logo">
+							<span>HT</span>
+							<span>Reviews</span>
+						</Link>
 					</li>
 					<li>
-						<a>Catalog</a>
+						<Link to="/catalog" className="link">
+							<img className="catalog-img" src="../images/catalogImage.png" />
+							Catalog
+						</Link>
 					</li>
 					<li>
 						<a>Login</a>
@@ -22,8 +27,8 @@ export default function Header() {
 						<a>Logout</a>
 					</li>
 				</ul>
-				<img src="../images/logo2.png" />
 			</nav>
+			<img className="logo-img" src="../images/logo2.png" />
 		</div>
 	);
 }
