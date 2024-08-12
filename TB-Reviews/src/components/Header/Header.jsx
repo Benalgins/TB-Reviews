@@ -6,8 +6,16 @@ export default function Header() {
 			<header>
 				<h1>
 					<div className="logo">
-						<span className="ht">HT</span>
-						<span className="review">Review</span>
+						<h1>
+							<Link className="ht" to="/">
+								HT
+							</Link>
+						</h1>
+						<h1>
+							<Link className="review" to="/">
+								Review
+							</Link>
+						</h1>
 					</div>
 				</h1>
 				<nav className="navigation-bar">
