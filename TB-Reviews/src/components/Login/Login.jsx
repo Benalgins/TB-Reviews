@@ -8,7 +8,6 @@ export default function Login() {
 		email: '',
 		password: '',
 	});
-	console.log(loginHandler);
 
 	return (
 		<div className="login-form">
