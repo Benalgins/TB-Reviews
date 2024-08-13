@@ -9,7 +9,6 @@ export default function Catalog() {
 	useEffect(() => {
 		catalogServices.getAll().then((result) => setReviews(result));
 	}, []);
-	console.log(reviews);
 	return (
 		<div>
 			<h1 className="header">This is the Catalog section</h1>
@@ -20,6 +19,7 @@ export default function Catalog() {
 						key={review._id}
 						title={review.title}
 						description={review.description}
+						imgUrl={review.img}
 					/>
 				))}
 			</div>

@@ -13,12 +13,13 @@ export default function Header() {
 					</li>
 					<li>
 						<Link to="/catalog" className="link">
-							<img className="catalog-img" src="../images/catalogImage.png" />
 							Catalog
 						</Link>
 					</li>
 					<li>
-						<a>Login</a>
+						<Link to="/login" className="link">
+							Login
+						</Link>
 					</li>
 					<li>
 						<a>Register</a>
