@@ -1,5 +1,14 @@
 .container {
 	position: relative;
-	color: rgb(178, 94, 205);
 	font-family: cursive;
+}
+h1 {
+	text-align: center;
+	color: rgb(178, 94, 205);
+}
+p {
+	color: palegoldenrod;
+	font-size: 30px;
+	padding: 10 20%;
+	margin: 50px;
 }
