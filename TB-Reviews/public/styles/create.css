@@ -1,0 +1,19 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	color: darkgreen;
+}
+h1 {
+	font-size: 55px;
+}
+#suggestions {
+	width: 517px;
+	height: 120px;
+	font-size: 21px;
+}
+.btn.submit {
+	margin: 10px;
+}

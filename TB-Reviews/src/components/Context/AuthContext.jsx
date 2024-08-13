@@ -11,9 +11,9 @@ export const AuthProvider = ({ children }) => {
 	const loginHandler = async ({ email, password }) => {
 		const result = await authService.login(email, password);
 		setAuth(result);
+		localStorage.setItem('accessToken', result.accessToken);
 		navigate('/');
 	};
-	console.log(auth);
 
 	const values = {
 		loginHandler,
@@ -24,3 +24,16 @@ export const AuthProvider = ({ children }) => {
 };
 
 export default AuthContext;
+
+// accessToken
+// :
+// "aad39e40240a5bf3ea2457e6b9b8f26f199530a29e6934fa820521b030851f42"
+// email
+// :
+// "peter@abv.bg"
+// username
+// :
+// "Peter"
+// _id
+// :
+// "35c62d76-8152-4626-8712-eeb96381bea8"

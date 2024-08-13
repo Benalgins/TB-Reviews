@@ -22,9 +22,9 @@ export default function Header() {
 
 					{isLoggedIn && (
 						<div id="loged">
-							<li>
-								<a>Post a review</a>
-							</li>
+							<Link to="/create" className="link">
+								Create a review
+							</Link>
 							<li>
 								<a>Logout</a>
 							</li>

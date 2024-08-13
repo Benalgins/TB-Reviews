@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import useForm from '../../hooks/useForm';
 import AuthContext from '../Context/AuthContext';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
 	const { loginHandler } = useContext(AuthContext);
@@ -12,7 +13,7 @@ export default function Login() {
 	return (
 		<div className="login-form">
 			<div className="main">
-				<h1>Login</h1>
+				<h1>Enter your login credentials</h1>
 				<h3>Enter your login credentials</h3>
 				<form id="loginForm" onSubmit={onSubmit}>
 					<label htmlFor="first">Email:</label>
@@ -38,6 +39,10 @@ export default function Login() {
 					<div className="wrap">
 						<button type="submit">Submit</button>
 					</div>
+					<p>
+						Not a member ? Don't wait and go to
+						<Link to="/register">Register</Link>
+					</p>
 				</form>
 			</div>
 		</div>
