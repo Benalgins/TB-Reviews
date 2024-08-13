@@ -10,5 +10,17 @@
 	padding: 0px 33% 0 50%;
 	color: red;
 	align-content: center;
-	border: 2px solid red;
+}
+.previewList {
+	border: 2px solid yellow;
+}
+h6 {
+	font-size: 19px;
+	margin: 11px;
+}
+h2 {
+	text-align: center;
+}
+h3 {
+	text-align: center;
 }
