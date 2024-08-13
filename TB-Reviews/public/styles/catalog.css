@@ -1,0 +1,14 @@
+.header {
+	margin: 10px auto;
+	padding: 50px 50px 50px 50px;
+	padding-left: 45%;
+	font-size: 45px;
+	color: rebeccapurple;
+}
+.catalog-page {
+	margin: 17px auto;
+	padding: 0px 33% 0 50%;
+	color: red;
+	align-content: center;
+	border: 2px solid red;
+}
