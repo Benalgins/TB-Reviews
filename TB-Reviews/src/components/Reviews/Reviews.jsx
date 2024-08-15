@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 export default function Reviews({ title, description, imgUrl, id }) {
-	console.log(id);
 	return (
 		<div className="previewList">
 			<div className="previewInfo">

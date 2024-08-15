@@ -7,7 +7,6 @@ const buildOptions = (data) => {
 		};
 
 		const token = localStorage.getItem('accessToken');
-		console.log(options.headers);
 		if (token) {
 			options.headers = {
 				...options.headers,
@@ -24,8 +23,20 @@ export const request = async (method, url, data) => {
 		...buildOptions(data),
 		method,
 	});
+
+	if (response.status === 204) {
+		return {};
+	}
+	if (response.status === 409) {
+		throw new Error(response.message);
+	}
+
 	const result = await response.json();
-	//console.log(result);
+
+	if (!response.ok) {
+		throw result;
+	}
+
 	return result;
 };
 export const get = request.bind(null, 'GET');

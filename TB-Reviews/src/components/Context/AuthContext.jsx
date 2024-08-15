@@ -6,26 +6,33 @@ import { useNavigate } from 'react-router-dom';
 const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
-	const [auth, setAuth] = useState({});
+	const [auth, setAuth] = useState(() => {
+		localStorage.removeItem('accessToken');
+		localStorage.removeItem('key');
+		return {};
+	});
 
 	const loginHandler = async ({ email, password }) => {
 		const result = await authService.login(email, password);
 		setAuth(result);
 		localStorage.setItem('accessToken', result.accessToken);
+
+		localStorage.setItem('key', result.email);
 		navigate('/');
 	};
 
 	const logoutHandler = () => {
 		setAuth({});
 		localStorage.removeItem('accessToken');
+		localStorage.clear();
 		navigate(Path.Home);
 	};
 
 	const registerHandler = async (value) => {
 		const result = await authService.register(value.email, value.password);
-
 		setAuth(result);
 		localStorage.setItem('accessToken', result.accessToken);
+		localStorage.setItem('key', result.email);
 		navigate('/');
 	};
 
@@ -35,6 +42,7 @@ export const AuthProvider = ({ children }) => {
 		loginHandler,
 		isLoggedIn: !!auth.email,
 		email: auth.email,
+		username: auth.username,
 	};
 	return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };

@@ -1,18 +1,19 @@
-import { useEffect, useMemo, useReducer, useState } from 'react';
+import { useContext, useEffect, useMemo, useReducer, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as reviewService from '../../utils/reviewService';
 import useForm from '../../hooks/useForm';
 import * as commentService from '../../utils/commentService';
+import AuthContext from '../Context/AuthContext';
 
 export default function Details() {
 	const { reviewId } = useParams();
+	const { email } = useContext(AuthContext);
 	const [review, setReview] = useState({});
 	const [comments, setComments] = useState([]);
-	//const [comments , dispatch] = useReducer(reducer, [])
 	useEffect(() => {
 		reviewService.getOne(reviewId).then(setReview);
 		commentService.getAll(reviewId).then(setComments);
-		// console.log(comments);
+		console.log(comments);
 	}, [reviewId]);
 
 	const initialValues = useMemo(
@@ -22,14 +23,15 @@ export default function Details() {
 		[]
 	);
 
-	const addCommentSubmit = async () => {
-		const newComment = await commentService.create(reviewId, values.comment);
-		newComment.username = { email };
+	const addCommentSubmit = async (values) => {
+		let newComment = await commentService.create(reviewId, values.comment);
+		newComment = { ...newComment, username: email };
+		console.log(newComment);
 		return [...comments, setComments(newComment)];
 	};
-	// const [values, onChange, onSubmit] = useForm(addCommentSubmit, {
-	// 	comment: '',
-	// });
+	const { values, onChange, onSubmit } = useForm(addCommentSubmit, {
+		comment: '',
+	});
 
 	return (
 		<section>
@@ -43,7 +45,7 @@ export default function Details() {
 				<span>Description:</span>
 				<p>{review.description}</p>
 				<span className="comments-span">Comments:</span>
-				{/* <form className="form" onSubmit={onSubmit}>
+				<form className="form" onSubmit={onSubmit}>
 					<textarea
 						name="comment"
 						value={values.comment}
@@ -51,7 +53,8 @@ export default function Details() {
 						placeholder="Add a comment"
 					></textarea>
 					<input className="btn submit" type="submit" value="Add Comment" />
-				</form> */}
+				</form>
+				{/* {comments.map({})} */}
 				<section className="comments">Peter: This is a nice flavour!</section>
 				<button className="btn-edit">Edit</button>
 				<button className="btn-delete">Delete</button>
