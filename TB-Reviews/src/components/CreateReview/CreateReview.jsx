@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import * as reviewService from '../../utils/reviewService';
 import useForm from '../../hooks/useForm';
+import { useNavigate } from 'react-router-dom';
 
 export default function CreateReview() {
+	const navigate = useNavigate();
 	const [data, setData] = useState({});
 	const createReview = async (value) => {
 		setData(values);
 		const response = await reviewService.create(value);
+		navigate('/');
 	};
 	const { values, onChange, onSubmit } = useForm(createReview, {
 		brand: '',
@@ -49,7 +52,7 @@ export default function CreateReview() {
 				<label htmlFor="first">Image link:</label>
 				<input
 					type="text"
-					id="imageUrl"
+					id="img"
 					name="img"
 					placeholder="Upload a photo"
 					onChange={onChange}

@@ -33,7 +33,7 @@ body {
 }
 .logo-img {
 	position: absolute;
-	transform: translate(0px, -50%);
+	transform: translate(0px, -42%);
 	top: 50%;
 }
 .link {

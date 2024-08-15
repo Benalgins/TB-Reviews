@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 		setAuth({});
 		localStorage.removeItem('accessToken');
 		localStorage.clear();
-		navigate(Path.Home);
+		navigate('/');
 	};
 
 	const registerHandler = async (value) => {

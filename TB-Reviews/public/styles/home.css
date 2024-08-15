@@ -1,6 +1,9 @@
 * {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+body {
+	margin: 0px;
+}
 .container {
 	position: relative;
 	font-family: cursive;
