@@ -12,7 +12,7 @@ export default function CreateReview() {
 		brand: '',
 		title: '',
 		description: '',
-		imageUrl: '',
+		img: '',
 		suggestions: '',
 	});
 	return (
@@ -50,7 +50,7 @@ export default function CreateReview() {
 				<input
 					type="text"
 					id="imageUrl"
-					name="imageUrl"
+					name="img"
 					placeholder="Upload a photo"
 					onChange={onChange}
 					//value={values.imageUrl}

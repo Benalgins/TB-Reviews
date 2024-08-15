@@ -7,6 +7,8 @@ import Home from './components/Home/Home';
 import Catalog from './components/Catalog/Catalog';
 import Login from './components/Login/Login';
 import CreateReview from './components/CreateReview/CreateReview';
+import Details from './components/Details/Details';
+import Logout from './components/Logout/Logout';
 
 function App() {
 	return (
@@ -18,7 +20,9 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/catalog" element={<Catalog />} />
 					<Route path="/login" element={<Login />} />
+					<Route path="/logout" element={<Logout />} />
 					<Route path="/create" element={<CreateReview />} />
+					<Route path="reviews/:reviewId/details" element={<Details />} />
 				</Routes>
 			</>
 		</AuthProvider>

@@ -15,7 +15,14 @@ export const AuthProvider = ({ children }) => {
 		navigate('/');
 	};
 
+	const logoutHandler = () => {
+		setAuth({});
+		localStorage.removeItem('accessToken');
+		navigate(Path.Home);
+	};
+
 	const values = {
+		logoutHandler,
 		loginHandler,
 		isLoggedIn: !!auth.email,
 		email: auth.email,

@@ -1,4 +1,7 @@
-export default function Reviews({ title, description, imgUrl }) {
+import { Link } from 'react-router-dom';
+
+export default function Reviews({ title, description, imgUrl, id }) {
+	console.log(id);
 	return (
 		<div className="previewList">
 			<div className="previewInfo">
@@ -7,6 +10,9 @@ export default function Reviews({ title, description, imgUrl }) {
 				<h6>{description}</h6>
 				<img className="img-review" src={imgUrl} />
 			</div>
+			<Link to={`/reviews/${id}/details`} className="details-button">
+				More Details
+			</Link>
 		</div>
 	);
 }

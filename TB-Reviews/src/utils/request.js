@@ -25,7 +25,7 @@ export const request = async (method, url, data) => {
 		method,
 	});
 	const result = await response.json();
-	console.log(result);
+	//console.log(result);
 	return result;
 };
 export const get = request.bind(null, 'GET');

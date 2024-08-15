@@ -25,9 +25,9 @@ export default function Header() {
 							<Link to="/create" className="link">
 								Create a review
 							</Link>
-							<li>
-								<a>Logout</a>
-							</li>
+							<Link to="/logout" className="link">
+								Logout
+							</Link>
 						</div>
 					)}
 					{!isLoggedIn && (
