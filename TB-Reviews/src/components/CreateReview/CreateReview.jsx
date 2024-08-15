@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import * as reviewService from '../../utils/reviewService';
 import useForm from '../../hooks/useForm';
 import { useNavigate } from 'react-router-dom';
@@ -7,17 +7,20 @@ export default function CreateReview() {
 	const navigate = useNavigate();
 
 	const createReview = async (value) => {
-		setData(values);
 		const response = await reviewService.create(value);
 		navigate('/');
 	};
-	const { values, onChange, onSubmit } = useForm(createReview, {
-		brand: '',
-		title: '',
-		description: '',
-		img: '',
-		suggestions: '',
-	});
+	const initialValues = useMemo(
+		() => ({
+			brand: '',
+			title: '',
+			description: '',
+			img: '',
+			suggestions: '',
+		}),
+		[]
+	);
+	const { values, onChange, onSubmit } = useForm(createReview, initialValues);
 	return (
 		<section id="create-review">
 			<form className="container" onSubmit={onSubmit}>

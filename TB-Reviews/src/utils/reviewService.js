@@ -16,3 +16,5 @@ export const edit = async (reviewId, data) => {
 	console.log(reviewId);
 	const result = await request.put(BASE_URL + '/' + reviewId, data);
 };
+export const remove = async (reviewId) =>
+	await request.remove(`${BASE_URL}/${reviewId}`);

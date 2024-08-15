@@ -1,5 +1,6 @@
 import { useContext, useEffect, useMemo, useReducer, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+
 import * as reviewService from '../../utils/reviewService';
 import useForm from '../../hooks/useForm';
 import * as commentService from '../../utils/commentService';
@@ -10,6 +11,8 @@ export default function Details() {
 	const { email, id } = useContext(AuthContext);
 	const [review, setReview] = useState({});
 	const [comments, setComments] = useState([]);
+	const navigate = useNavigate();
+
 	useEffect(() => {
 		reviewService.getOne(reviewId).then(setReview);
 		commentService.getAll(reviewId).then(setComments);
@@ -22,6 +25,11 @@ export default function Details() {
 		[]
 	);
 
+	const deleteHandler = async () => {
+		await reviewService.remove(reviewId);
+		navigate('/');
+	};
+
 	const addCommentSubmit = async (values) => {
 		let newComment = await commentService.create(reviewId, values.comment);
 		newComment = { ...newComment, username: email };
@@ -33,9 +41,6 @@ export default function Details() {
 		initialValues
 	);
 	const isOwner = id === review._ownerId;
-	// console.log(isOwner);
-	console.log(id);
-	console.log(review._ownerId);
 
 	return (
 		<section>
@@ -72,6 +77,9 @@ export default function Details() {
 						<Link to={`/reviews/${review._id}/edit`}>
 							<button className="btn-edit">EDIT</button>
 						</Link>
+						<button className="btn-edit" onClick={deleteHandler}>
+							DELETE
+						</button>
 					</div>
 				)}
 			</div>
