@@ -7,12 +7,12 @@
 	padding-left: 9%;
 }
 .catalog-page {
-	margin: 13px auto;
-	padding: 0px 25% 0 45%;
+	margin-left: 20%;
 	color: red;
 	align-content: center;
 	display: flex;
-	flex-direction: row;
+	width: 70%;
+	overflow-x: auto;
 }
 .previewList {
 	border: 2px solid yellow;
@@ -48,4 +48,7 @@ h3 {
 .details-button {
 	font-size: 44px;
 	font-family: fantasy;
+}
+.catalog-container {
+	width: 100%;
 }

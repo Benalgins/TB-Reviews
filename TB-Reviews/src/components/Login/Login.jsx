@@ -1,14 +1,18 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import useForm from '../../hooks/useForm';
 import AuthContext from '../Context/AuthContext';
 import { Link } from 'react-router-dom';
 
 export default function Login() {
 	const { loginHandler } = useContext(AuthContext);
-	const { values, onChange, onSubmit } = useForm(loginHandler, {
-		email: '',
-		password: '',
-	});
+	const initialValues = useMemo(
+		() => ({
+			email: '',
+			password: '',
+		}),
+		[]
+	);
+	const { values, onChange, onSubmit } = useForm(loginHandler, initialValues);
 
 	return (
 		<div className="login-form">

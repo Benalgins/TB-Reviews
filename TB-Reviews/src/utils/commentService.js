@@ -8,7 +8,6 @@ export const getAll = async (reviewId) => {
 		load: `owner=_ownerId:users`,
 	});
 	const result = await request.get(`${BASE_URL}?${query}`);
-	console.log(result);
 	return result;
 };
 

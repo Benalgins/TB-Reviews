@@ -10,7 +10,7 @@ export default function Catalog() {
 		catalogServices.getAll().then((result) => setReviews(result));
 	}, []);
 	return (
-		<div>
+		<div className="catalog-container">
 			<h1 className="header">This is the Catalog section</h1>
 
 			<div className="catalog-page">

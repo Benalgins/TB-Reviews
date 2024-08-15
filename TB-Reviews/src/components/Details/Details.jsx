@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useReducer, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import * as reviewService from '../../utils/reviewService';
 import useForm from '../../hooks/useForm';
 import * as commentService from '../../utils/commentService';
@@ -7,13 +7,12 @@ import AuthContext from '../Context/AuthContext';
 
 export default function Details() {
 	const { reviewId } = useParams();
-	const { email } = useContext(AuthContext);
+	const { email, id } = useContext(AuthContext);
 	const [review, setReview] = useState({});
 	const [comments, setComments] = useState([]);
 	useEffect(() => {
 		reviewService.getOne(reviewId).then(setReview);
 		commentService.getAll(reviewId).then(setComments);
-		console.log(comments);
 	}, [reviewId]);
 
 	const initialValues = useMemo(
@@ -29,9 +28,14 @@ export default function Details() {
 		console.log(newComment);
 		return [...comments, setComments(newComment)];
 	};
-	const { values, onChange, onSubmit } = useForm(addCommentSubmit, {
-		comment: '',
-	});
+	const { values, onChange, onSubmit } = useForm(
+		addCommentSubmit,
+		initialValues
+	);
+	const isOwner = id === review._ownerId;
+	// console.log(isOwner);
+	console.log(id);
+	console.log(review._ownerId);
 
 	return (
 		<section>
@@ -55,17 +59,21 @@ export default function Details() {
 					<input className="btn submit" type="submit" value="Add Comment" />
 				</form>
 				<div>
-					{comments.map(({ _id, text, owner: { email } }) => (
+					{/* {comments.map(({ _id, text, owner: { email } }) => (
 						<li key={_id} className="comments">
 							<p>
 								{email}: {text}
 							</p>{' '}
 						</li>
-					))}
+					))} */}
 				</div>
-
-				<button className="btn-edit">Edit</button>
-				<button className="btn-delete">Delete</button>
+				{isOwner && (
+					<div className="edit-section">
+						<Link to={`/reviews/${review._id}/edit`}>
+							<button className="btn-edit">EDIT</button>
+						</Link>
+					</div>
+				)}
 			</div>
 		</section>
 	);

@@ -11,3 +11,8 @@ export const getOne = async (reviewId) => {
 	const result = await request.get(BASE_URL + '/' + reviewId);
 	return result;
 };
+
+export const edit = async (reviewId, data) => {
+	console.log(reviewId);
+	const result = await request.put(BASE_URL + '/' + reviewId, data);
+};

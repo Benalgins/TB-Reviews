@@ -43,6 +43,7 @@ export const AuthProvider = ({ children }) => {
 		isLoggedIn: !!auth.email,
 		email: auth.email,
 		username: auth.username,
+		id: auth._id,
 	};
 	return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };

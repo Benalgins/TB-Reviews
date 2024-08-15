@@ -10,6 +10,7 @@ import CreateReview from './components/CreateReview/CreateReview';
 import Details from './components/Details/Details';
 import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
+import EditReview from './components/EditReview/EditReview';
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 					<Route path="/logout" element={<Logout />} />
 					<Route path="/register" element={<Register />} />
 					<Route path="/create" element={<CreateReview />} />
+					<Route path="/reviews/:reviewId/edit" element={<EditReview />} />
 					<Route path="reviews/:reviewId/details" element={<Details />} />
 				</Routes>
 			</>
