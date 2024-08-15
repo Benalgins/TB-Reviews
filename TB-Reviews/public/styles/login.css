@@ -8,6 +8,10 @@
 	justify-content: center;
 	align-items: center;
 }
+#loginForm {
+	display: flex;
+	flex-direction: column;
+}
 h3 {
 	font-size: 40px;
 }
@@ -16,9 +20,25 @@ label {
 }
 input {
 	font-size: 35px;
+	border-radius: 7px;
 }
 button {
 	font-size: 35px;
+	border-radius: 7px;
+	transition: 0.2s;
+	margin-top: 20px;
+
+	background-color: beige;
+	padding: 5px 15px 5px 15px;
+}
+button:hover {
+	cursor: pointer;
+	-webkit-box-shadow: 6px 6px 38px 10px rgb(178, 94, 205);
+	-moz-box-shadow: 6px 6px 38px 10px rgb(178, 94, 205);
+	box-shadow: 6px 6px 38px 10px rgb(178, 94, 205);
+
+	background-color: rgb(183, 183, 177);
+	color: rgb(249, 249, 249);
 }
 a {
 	margin: 10;

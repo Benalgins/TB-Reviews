@@ -14,7 +14,6 @@ export default function Login() {
 		<div className="login-form">
 			<div className="main">
 				<h1>Enter your login credentials</h1>
-				<h3>Enter your login credentials</h3>
 				<form id="loginForm" onSubmit={onSubmit}>
 					<label htmlFor="first">Email:</label>
 					<input
