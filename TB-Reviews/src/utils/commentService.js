@@ -5,9 +5,11 @@ const BASE_URL = 'http://localhost:3030/data/comments';
 export const getAll = async (reviewId) => {
 	const query = new URLSearchParams({
 		where: `reviewId="${reviewId}"`,
+		load: `owner=_ownerId:users`,
 	});
-	const result = await request.get(`${BASE_URL}`);
-	return result.filter((comment) => comment.reviewId === reviewId);
+	const result = await request.get(`${BASE_URL}?${query}`);
+	console.log(result);
+	return result;
 };
 
 export const create = async (reviewId, text) => {

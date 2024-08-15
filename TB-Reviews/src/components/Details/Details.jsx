@@ -54,8 +54,16 @@ export default function Details() {
 					></textarea>
 					<input className="btn submit" type="submit" value="Add Comment" />
 				</form>
-				{/* {comments.map({})} */}
-				<section className="comments">Peter: This is a nice flavour!</section>
+				<div>
+					{comments.map(({ _id, text, owner: { email } }) => (
+						<li key={_id} className="comments">
+							<p>
+								{email}: {text}
+							</p>{' '}
+						</li>
+					))}
+				</div>
+
 				<button className="btn-edit">Edit</button>
 				<button className="btn-delete">Delete</button>
 			</div>
