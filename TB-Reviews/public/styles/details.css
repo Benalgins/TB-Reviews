@@ -10,3 +10,12 @@
 img {
 	width: 250px;
 }
+.comments {
+	color: red;
+	font-size: 20px;
+}
+span,
+.comments-span {
+	color: brown;
+	font-size: 24px;
+}
