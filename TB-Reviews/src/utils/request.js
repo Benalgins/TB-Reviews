@@ -7,12 +7,14 @@ const buildOptions = (data) => {
 		};
 
 		const token = localStorage.getItem('accessToken');
+		console.log(options.headers);
 		if (token) {
 			options.headers = {
 				...options.headers,
 				'X-Authorization': token,
 			};
 		}
+
 		return options;
 	}
 };
@@ -23,6 +25,7 @@ export const request = async (method, url, data) => {
 		method,
 	});
 	const result = await response.json();
+	console.log(result);
 	return result;
 };
 export const get = request.bind(null, 'GET');

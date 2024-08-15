@@ -42,7 +42,7 @@ export default function CreateReview() {
 					type="text"
 					id="description"
 					name="description"
-					placeholder="Enter game a description"
+					placeholder="Enter  a description"
 					onChange={onChange}
 					//value={values.description}
 				/>
