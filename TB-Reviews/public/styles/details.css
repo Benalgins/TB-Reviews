@@ -1,0 +1,12 @@
+.details-preview {
+	display: flex;
+	width: 20%;
+	text-align: center;
+	padding: 100;
+	margin: 10%;
+	flex-direction: row;
+	align-items: center;
+}
+img {
+	width: 250px;
+}
