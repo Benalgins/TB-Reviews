@@ -21,7 +21,16 @@ export const AuthProvider = ({ children }) => {
 		navigate(Path.Home);
 	};
 
+	const registerHandler = async (value) => {
+		const result = await authService.register(value.email, value.password);
+
+		setAuth(result);
+		localStorage.setItem('accessToken', result.accessToken);
+		navigate('/');
+	};
+
 	const values = {
+		registerHandler,
 		logoutHandler,
 		loginHandler,
 		isLoggedIn: !!auth.email,

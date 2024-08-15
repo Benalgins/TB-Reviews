@@ -22,12 +22,16 @@ export default function Header() {
 
 					{isLoggedIn && (
 						<div id="loged">
-							<Link to="/create" className="link">
-								Create a review
-							</Link>
-							<Link to="/logout" className="link">
-								Logout
-							</Link>
+							<li>
+								<Link to="/create" className="link">
+									Create a review
+								</Link>
+							</li>
+							<li>
+								<Link to="/logout" className="link">
+									Logout
+								</Link>
+							</li>
 						</div>
 					)}
 					{!isLoggedIn && (
@@ -38,7 +42,9 @@ export default function Header() {
 								</Link>
 							</li>
 							<li>
-								<a>Register</a>
+								<Link to="/register" className="link">
+									Register
+								</Link>
 							</li>
 						</div>
 					)}

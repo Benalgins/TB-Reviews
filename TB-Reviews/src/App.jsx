@@ -9,6 +9,7 @@ import Login from './components/Login/Login';
 import CreateReview from './components/CreateReview/CreateReview';
 import Details from './components/Details/Details';
 import Logout from './components/Logout/Logout';
+import Register from './components/Register/Register';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					<Route path="/catalog" element={<Catalog />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/logout" element={<Logout />} />
+					<Route path="/register" element={<Register />} />
 					<Route path="/create" element={<CreateReview />} />
 					<Route path="reviews/:reviewId/details" element={<Details />} />
 				</Routes>
